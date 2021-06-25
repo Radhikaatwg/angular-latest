@@ -4,6 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { EscapeHtmlPipe } from './render-html.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +60,24 @@ import { UsercreatorComponent } from './usercreator/usercreator.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { LoancalcComponent } from './loancalc/loancalc.component';
 import { AdminloanComponent } from './adminloan/adminloan.component';
+import { AdminBlogComponent } from './admin-blog/admin-blog.component';
+import { AdminBlogSinglePostComponent } from './admin-blog-single-post/admin-blog-single-post.component';
+import { ArticlesTipsComponent } from './articles-tips/articles-tips.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogCatPropertyComponent } from './blog-cat-property/blog-cat-property.component';
+import { BlogCreatePostComponent } from './blog-create-post/blog-create-post.component';
+import { BlogDeletePostComponent } from './blog-delete-post/blog-delete-post.component';
+import { BlogFeaturedListComponent } from './blog-featured-list/blog-featured-list.component';
+import { BlogSearchComponent } from './blog-search/blog-search.component';
+import { BlogSinglePostComponent } from './blog-single-post/blog-single-post.component';
+import { BlogTagsComponent } from './blog-tags/blog-tags.component';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { TruncateTextPipe } from './truncate-text.pipe';
+import { EmiCalculatorComponent } from './emi-calculator/emi-calculator.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -71,7 +95,7 @@ import { AdminloanComponent } from './adminloan/adminloan.component';
     BoardAgentComponent,
     BoardCompanyComponent,
     BoardUserComponent,
-//    FileUploadModule,
+    //    FileUploadModule,
     UserloginComponent,
     UserregisterComponent,
     ProfileComponent,
@@ -106,16 +130,40 @@ import { AdminloanComponent } from './adminloan/adminloan.component';
     AllusersComponent,
     LoancalcComponent,
     AdminloanComponent,
+    AdminBlogComponent,
+    AdminBlogSinglePostComponent,
+    ArticlesTipsComponent,
+    BlogComponent,
+    BlogCatPropertyComponent,
+    BlogCreatePostComponent,
+    BlogDeletePostComponent,
+    BlogFeaturedListComponent,
+    BlogSearchComponent,
+    BlogSinglePostComponent,
+    BlogTagsComponent,
+    TruncateTextPipe,
+    EmiCalculatorComponent,
+    ConfirmationDialogComponent,
+    EscapeHtmlPipe,
   ],
   imports: [
     BrowserModule,
+    EditorModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
     FormsModule,
-    ReactiveFormsModule
+    NgxSpinnerModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgbModule,
+    CKEditorModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     Title,
+    ConfirmationDialogService,
     ProductService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],

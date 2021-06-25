@@ -114,5 +114,4 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/get_requ', { responseType: 'json' });
   }
 
-
 }

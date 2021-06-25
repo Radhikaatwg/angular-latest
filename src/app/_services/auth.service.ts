@@ -12,8 +12,6 @@ const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json'})
 };
 
-
-
 @Injectable({
   providedIn: 'root'
 })

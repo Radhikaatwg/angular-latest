@@ -37,8 +37,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
-
-
+import { BlogComponent } from './blog/blog.component';
+import { BlogCreatePostComponent } from './blog-create-post/blog-create-post.component';
+import { BlogSinglePostComponent } from './blog-single-post/blog-single-post.component';
+import { AdminBlogComponent } from './admin-blog/admin-blog.component';
+import { AdminBlogSinglePostComponent } from './admin-blog-single-post/admin-blog-single-post.component';
+import { EmiCalculatorComponent } from './emi-calculator/emi-calculator.component';
+import { PostsGuard } from './posts.guard';
 
 const routes: Routes = [
 
@@ -78,12 +83,23 @@ const routes: Routes = [
   {path: 'loancalc', component: LoancalcComponent},
   {path: 'adminloan', component: AdminloanComponent},
   {path: 'testimonials', component: TestimonialsComponent},
+  {path: 'blog', component: BlogComponent},
+  {path: 'blog-create-post', component: BlogCreatePostComponent, canActivate: [PostsGuard]},
+  {path: 'blog-single-post/:slug', component: BlogSinglePostComponent},
+  {path: 'blog-edit-post/:slug', component: BlogCreatePostComponent},
+  //{path:'blog-edit-post/:slug', component: BlogEditPostComponent},
+  //{path: 'blog-single-post', component: BlogSinglePostComponent},
+  {path: 'admin-blog', component: AdminBlogComponent, canActivate: [PostsGuard]},
+  {path: 'admin-blog-single-post/:slug', component: AdminBlogSinglePostComponent},
+  {path: 'emi-calculator', component: EmiCalculatorComponent},								
   {path: '**', component: NotfoundComponent},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
